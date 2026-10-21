@@ -937,11 +937,83 @@ elif role == "🏭 Эмитент (Продавец)":
             st.plotly_chart(fig_gantt, use_container_width=True, key="g1")
 
     with tab2:
-        col1, col2 = st.columns([1, 1])
-        with col1:
-            st.plotly_chart(fig_sunburst, use_container_width=True, key="s1")
-        with col2:
-            st.plotly_chart(fig_scatter, use_container_width=True, key="s2")
+        st.markdown("### 🛍️ Управление витриной")
+        st.markdown("""
+        На этой вкладке вы можете анализировать, какие товары выставлены на продажу, 
+        и сравнивать ваши цены с рыночными, чтобы сделки проходили быстро.
+        """)
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        # --- ГРАФИК 1: Объемы товаров ---
+        st.markdown("#### 📦 Объем выставленных УЦП")
+        st.markdown("График показывает, сколько тонн каждого товара сейчас доступно для покупки на витрине. *Используйте его, чтобы понимать, какие позиции нужно продвигать активнее.*")
+        
+        fig_volume = px.bar(
+            df_prices, 
+            x="Товар", 
+            y="Объем", 
+            text="Объем",
+            color="Товар", 
+            color_discrete_sequence=P,
+            labels={"Объем": "Объем (тонн)", "Товар": "Продукция"}
+        )
+        fig_volume.update_traces(texttemplate='%{text} т', textposition='outside')
+        fig_volume.update_layout(
+            height=400, template=T, showlegend=False,
+            margin=dict(l=20, r=20, t=20, b=20),
+            yaxis_title="Объем, тонн"
+        )
+        st.plotly_chart(fig_volume, use_container_width=True, key="s1")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        # --- ГРАФИК 2: Ценообразование ---
+        st.markdown("#### 💰 Ваши цены против рынка")
+        st.markdown("""
+        Этот график показывает, как ваши цены на УЦП соотносятся с обычными рыночными ценами. 
+        * **Серая колонка** — средняя цена на рынке.
+        * **Зеленая колонка** — ваша цена на платформе.
+        
+        **Почему УЦП дешевле рынка?** Вы продаете товар «на корню» (до сбора урожая), 
+        поэтому покупатели получают скидку (обычно 2–3%), а вы получаете живые деньги 
+        для финансирования производства прямо сейчас.
+        """)
+
+        fig_pricing = go.Figure()
+        fig_pricing.add_trace(go.Bar(
+            name="Рыночная цена", 
+            x=df_prices["Товар"], 
+            y=df_prices["Рынок"],
+            marker_color="#CCCCCC",
+            text=df_prices["Рынок"], 
+            textposition="outside"
+        ))
+        fig_pricing.add_trace(go.Bar(
+            name="Цена УЦП (ваша)", 
+            x=df_prices["Товар"], 
+            y=df_prices["УЦП"],
+            marker_color=P[1],
+            text=df_prices["УЦП"], 
+            textposition="outside"
+        ))
+        
+        fig_pricing.update_layout(
+            barmode="group", 
+            height=400, 
+            template=T,
+            margin=dict(l=20, r=20, t=20, b=20),
+            yaxis_title="Цена за тонну, ₽",
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+        )
+        st.plotly_chart(fig_pricing, use_container_width=True, key="s2")
+
+        # --- Блок с рекомендацией ---
+        st.info("""
+        **💡 Рекомендация для Эмитента:** 
+        Чтобы ускорить продажи, вы можете снизить цену УЦП на **1-2%** от текущей. 
+        Это сделает предложение более привлекательным для инвесторов, 
+        и вы быстрее получите предоплату.
+        """)
         
     with tab3:
         col1, col2 = st.columns([1, 1.5])
