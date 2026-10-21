@@ -135,17 +135,20 @@ fig_heatmap.update_layout(title="Календарь поставок (6 неде
 
 fig_sankey = go.Figure(data=[go.Sankey(
     node = dict(
-      pad = 20, thickness = 25, line = dict(color = "black", width = 0.5),
-      label = ["Поиск поставщика", "Получение КП", "Согласование договора", "Согласование спецификации", "Получение счета", "Оплата", "Ожидание поставки",
-               "Выбор товара", "Ознакомление с условиями", "Покупка УЦП"],
+      pad = 30, thickness = 20, line = dict(color = "white", width = 1),
+      label = ["Поиск", "КП", "Договор", "Спецификация", "Счет", "Оплата", "Поставка", 
+               "Выбор", "Условия", "Покупка"],
       color = ["#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", 
-               "#06A77D", "#06A77D", "#06A77D"]
+               "#06A77D", "#06A77D", "#06A77D"],
+      textfont = dict(color = "white", size = 14, family = "Arial") # Белый шрифт для контраста
     ),
     link = dict(source = [0, 1, 2, 3, 4, 5, 6, 7, 8], target = [7, 7, 8, 8, 8, 9, 9, 9, 9],
-      value = [1, 1, 1, 1, 1, 1, 1, 1, 1], color = ["rgba(230,57,70,0.2)"]*7 + ["rgba(6,167,125,0.2)"]*2)
+      value = [1, 1, 1, 1, 1, 1, 1, 1, 1], color = ["rgba(230,57,70,0.15)"]*7 + ["rgba(6,167,125,0.15)"]*2)
 )])
-fig_sankey.update_layout(title="Трансформация сделки: 7 шагов (Красный) -> 3 шага (Зеленый)", 
-                         height=400, template=T, margin=dict(l=20, r=20, t=60, b=20), font=dict(size=14, color="#888888"))
+fig_sankey.update_layout(
+    title=dict(text="Сделка: 7 шагов ➔ 3 шага", font=dict(size=18, color="#333")), 
+    height=400, template=T, margin=dict(l=20, r=20, t=60, b=20)
+)
 
 df_gantt_buyer = pd.DataFrame([
     dict(Task="Пшеница 3 кл. (1000 т)", Start='2025-05-10', Finish='2025-09-01', Status="В пути"),
