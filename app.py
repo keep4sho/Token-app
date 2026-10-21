@@ -468,19 +468,24 @@ if role == "📑 Концепция проекта":
         
         fig_pipeline = go.Figure(data=[go.Sankey(
             node = dict(
-              pad = 20, thickness = 20, line = dict(color = "black", width = 0.5),
-              label = ["Эмитент создает УЦП", "ОИС проверяет решение", "Размещение на витрине", 
-                       "Покупатель выбирает", "Сделка", "Перевод прав в депозитарий"],
-              color = ["#2E86AB", "#F4A261", "#8E7DBE", "#06A77D", "#06A77D", "#2E86AB"]
+              pad = 25, thickness = 25, line = dict(color = "white", width = 1),
+              label = ["1. Эмитент создает УЦП", "2. ОИС проверяет решение", "3. Размещение на витрине", 
+                       "4. Покупатель выбирает", "5. Сделка (Покупка)", "6. Перевод прав в депозитарий"],
+              color = ["#2E86AB", "#F4A261", "#8E7DBE", "#06A77D", "#06A77D", "#2E86AB"],
+              textfont = dict(color = "black", size = 14, family = "Arial")
             ),
             link = dict(
               source = [0, 1, 2, 3, 4], 
               target = [1, 2, 3, 4, 5],
               value = [10, 10, 10, 10, 10],
-              color = ["rgba(46,134,171,0.3)"] * 5
+              color = ["rgba(46,134,171,0.3)", "rgba(244,162,97,0.3)", "rgba(142,125,190,0.3)", "rgba(6,167,125,0.3)", "rgba(6,167,125,0.3)"]
             )
         )])
-        fig_pipeline.update_layout(title="Pipeline создания и покупки УЦП", height=350, template=T)
+        fig_pipeline.update_layout(
+            title="Pipeline создания и покупки УЦП", 
+            height=400, template=T,
+            margin=dict(l=20, r=20, t=60, b=20)
+        )
         st.plotly_chart(fig_pipeline, use_container_width=True)
 
         st.markdown("### 📖 Примеры сценариев использования")
