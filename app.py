@@ -1052,7 +1052,7 @@ else:
             """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
         
-                # --- НОВЫЙ ГРАФИК ВМЕСТО SANKEY ---
+        # --- НОВЫЙ ГРАФИК ТРАНСФОРМАЦИИ СДЕЛКИ ---
         st.markdown("#### ⚡ Трансформация сделки")
         
         fig_transform = go.Figure(go.Bar(
@@ -1062,16 +1062,15 @@ else:
             marker_color=['#E63946', '#06A77D'],
             text=["7 шагов (до 10 дней)", "3 шага (1 день)"],
             textposition='inside',
-            textfont=dict(color='white', size=15, weight='bold')
+            textfont=dict(color='white', size=15)
         ))
         
         fig_transform.update_layout(
-            title="Сокращение пути сделки: от 7 шагов к 3",
             xaxis_title="Количество этапов (шагов)",
             yaxis_title="",
             height=300,
             template=T,
-            margin=dict(l=20, r=20, t=60, b=20),
+            margin=dict(l=20, r=20, t=20, b=20),
             showlegend=False
         )
         st.plotly_chart(fig_transform, use_container_width=True, key="transform_chart")
