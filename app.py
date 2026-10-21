@@ -625,7 +625,7 @@ if role == "📑 Концепция проекта":
                 "2027": ["15", "1.92", "28.8", "0.5%", "**144**"],
                 "2028": ["40", "2.70", "108.0", "0.5%", "**540**"],
             })
-            st.dataframe(df_rev_drivers, use_container_width=True, hide_index=True)
+            st.write(df_rev_drivers.replace(r'\*\*(.*?)\*\*', r'<b>\1</b>', regex=True).to_html(escape=False, index=False), unsafe_allow_html=True)
         
             fig_rev = go.Figure()
             fig_rev.add_trace(go.Bar(
@@ -718,7 +718,7 @@ if role == "📑 Концепция проекта":
                 "Значение": ["8.5%", "7.5%", "1.20", "3.0%", "**20.5%**", "16.5%", "2.0%", "18.5%", "25%", "**13.9%**"],
                 "Источник": ["ЦБ РФ, ОФЗ", "Damodaran", "Damodaran (Software)", "SBBI Yearbook", "CAPM", "ЦБ РФ", "Банковский рынок", "Расчёт", "НК РФ", "Kd × (1 − T)"],
             })
-            st.dataframe(df_wacc, use_container_width=True, hide_index=True)
+            st.write(df_wacc.replace(r'\*\*(.*?)\*\*', r'<b>\1</b>', regex=True).to_html(escape=False, index=False), unsafe_allow_html=True)
         
             st.markdown("""
             **Структура капитала:** целевое D/E = 0.30 → веса E = 77%, D = 23%.
@@ -745,7 +745,7 @@ if role == "📑 Концепция проекта":
                 "2029": [580, -142, 426, 12, -15, -25.5, "**397.5**"],
                 "2030": [880, -216, 649, 15, -18, -46, "**600**"],
             })
-            st.dataframe(df_fcf, use_container_width=True, hide_index=True)
+            st.write(df_fcf.replace(r'\*\*(.*?)\*\*', r'<b>\1</b>', regex=True).to_html(escape=False, index=False), unsafe_allow_html=True)
         
             st.markdown("""
             **Терминальная стоимость (TV)** — стоимость проекта за пределами 5-летнего 
@@ -831,7 +831,7 @@ if role == "📑 Концепция проекта":
                 "Базовый": ["40", "2.7", "19%", "**1 704**", "**342%**", "**57.4×**", "**1.9 года**"],
                 "Оптимистичный": ["60", "3.5", "16%", "~3 800", "~600%", "~110×", "~1.3 года"],
             })
-            st.dataframe(df_scen, use_container_width=True, hide_index=True)
+            st.write(df_scen.replace(r'\*\*(.*?)\*\*', r'<b>\1</b>', regex=True).to_html(escape=False, index=False), unsafe_allow_html=True)
         
             fig_scen = go.Figure(go.Bar(
                 x=["Пессимистичный", "Базовый", "Оптимистичный"],
