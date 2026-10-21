@@ -133,6 +133,20 @@ fig_heatmap = go.Figure(data=go.Heatmap(
 fig_heatmap.update_layout(title="Календарь поставок (6 недель)", height=400, template=T,
                           margin=dict(l=100, r=20, t=60, b=20), yaxis=dict(autorange="reversed"))
 
+fig_sankey = go.Figure(data=[go.Sankey(
+    node = dict(
+      pad = 20, thickness = 25, line = dict(color = "black", width = 0.5),
+      label = ["Поиск поставщика", "Получение КП", "Согласование договора", "Согласование спецификации", "Получение счета", "Оплата", "Ожидание поставки",
+               "Выбор товара", "Ознакомление с условиями", "Покупка УЦП"],
+      color = ["#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", 
+               "#06A77D", "#06A77D", "#06A77D"]
+    ),
+    link = dict(source = [0, 1, 2, 3, 4, 5, 6, 7, 8], target = [7, 7, 8, 8, 8, 9, 9, 9, 9],
+      value = [1, 1, 1, 1, 1, 1, 1, 1, 1], color = ["rgba(230,57,70,0.2)"]*7 + ["rgba(6,167,125,0.2)"]*2)
+)])
+fig_sankey.update_layout(title="Трансформация сделки: 7 шагов (Красный) -> 3 шага (Зеленый)", 
+                         height=400, template=T, margin=dict(l=20, r=20, t=60, b=20), font=dict(size=12))
+
 df_gantt_buyer = pd.DataFrame([
     dict(Task="Пшеница 3 кл. (1000 т)", Start='2025-05-10', Finish='2025-09-01', Status="В пути"),
     dict(Task="Кукуруза (500 т)", Start='2025-06-15', Finish='2025-10-01', Status="Ожидает производства"),
@@ -1014,7 +1028,7 @@ else:
     
     tab4, tab5, tab6 = st.tabs(["🏪 Витрина УЦП", "📁 Портфель прав", "⚖️ Юридический конструктор"])
     
-        with tab4:
+    with tab4:
         st.markdown("### Доступные предложения")
         c1, c2, c3 = st.columns(3)
         with c1:
@@ -1050,42 +1064,10 @@ else:
                 <button class="btn-buy">Купить УЦП</button>
             </div>
             """, unsafe_allow_html=True)
-            
         st.markdown("<br><br>", unsafe_allow_html=True)
         
-        st.html("""
-        <h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>
-        
-        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 30px; border-radius: 12px; border: 1px solid #E5E8EC;">
-            
-            <div style="width: 40%;">
-                <div style="color: #E63946; font-weight: bold; margin-bottom: 15px; text-align: center; font-size: 16px;">Традиционная сделка</div>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">1. Поиск поставщика</div>
-                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">2. Получение КП</div>
-                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">3. Согласование договора</div>
-                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">4. Согласование спецификации</div>
-                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">5. Получение счета</div>
-                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">6. Оплата</div>
-                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">7. Ожидание поставки</div>
-                </div>
-            </div>
-
-            <div style="width: 20%; text-align: center;">
-                <div style="font-size: 40px; color: #F4A261; margin-bottom: 10px;">➔</div>
-                <div style="font-size: 12px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Экономия 10 дней</div>
-            </div>
-
-            <div style="width: 40%;">
-                <div style="color: #06A77D; font-weight: bold; margin-bottom: 15px; text-align: center; font-size: 16px;">Сделка через УЦП</div>
-                <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center; height: 80%;">
-                    <div style="background: #E8F5E9; border-left: 4px solid #06A77D; padding: 15px; border-radius: 4px; font-size: 14px; font-weight: bold; color: #1B5E20;">1. Выбор товара</div>
-                    <div style="background: #E8F5E9; border-left: 4px solid #06A77D; padding: 15px; border-radius: 4px; font-size: 14px; font-weight: bold; color: #1B5E20;">2. Ознакомление с условиями</div>
-                    <div style="background: #E8F5E9; border-left: 4px solid #06A77D; padding: 15px; border-radius: 4px; font-size: 14px; font-weight: bold; color: #1B5E20;">3. Покупка УЦП</div>
-                </div>
-            </div>
-        </div>
-        """)
+        # Возвращаем оригинальный рабочий график
+        st.plotly_chart(fig_sankey, use_container_width=True, key="sankey1")
 
     with tab5:
         st.markdown("### Мой портфель цифровых прав")
