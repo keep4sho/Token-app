@@ -1054,7 +1054,9 @@ else:
         
         st.markdown("<h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>", unsafe_allow_html=True)
         
-        st.markdown("""
+                st.html("<h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>")
+        
+        st.html("""
         <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 30px; border-radius: 12px; border: 1px solid #E5E8EC;">
             
             <!-- Левая колонка: Старый путь -->
@@ -1088,7 +1090,7 @@ else:
             </div>
 
         </div>
-        """, unsafe_allow_html=True)
+        """)
 
     with tab5:
         st.markdown("### Мой портфель цифровых прав")
