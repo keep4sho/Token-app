@@ -1068,7 +1068,43 @@ else:
             </div>
             """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
-        st.plotly_chart(fig_sankey, use_container_width=True, key="sankey1")
+                st.markdown("<h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>", unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 30px; border-radius: 12px; border: 1px solid #E5E8EC;">
+            
+            <!-- Левая колонка: Старый путь -->
+            <div style="width: 40%;">
+                <div style="color: #E63946; font-weight: bold; margin-bottom: 15px; text-align: center; font-size: 16px;">Традиционная сделка</div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">1. Поиск поставщика</div>
+                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">2. Получение КП</div>
+                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">3. Согласование договора</div>
+                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">4. Согласование спецификации</div>
+                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">5. Получение счета</div>
+                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">6. Оплата</div>
+                    <div style="background: white; border-left: 4px solid #E63946; padding: 10px 15px; border-radius: 4px; font-size: 13px; color: #444;">7. Ожидание поставки</div>
+                </div>
+            </div>
+
+            <!-- Стрелка по центру -->
+            <div style="width: 20%; text-align: center;">
+                <div style="font-size: 40px; color: #F4A261; margin-bottom: 10px;">➔</div>
+                <div style="font-size: 12px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Экономия 10 дней</div>
+            </div>
+
+            <!-- Правая колонка: Новый путь -->
+            <div style="width: 40%;">
+                <div style="color: #06A77D; font-weight: bold; margin-bottom: 15px; text-align: center; font-size: 16px;">Сделка через УЦП</div>
+                <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center; height: 80%;">
+                    <div style="background: #E8F5E9; border-left: 4px solid #06A77D; padding: 15px; border-radius: 4px; font-size: 14px; font-weight: bold; color: #1B5E20;">1. Выбор товара</div>
+                    <div style="background: #E8F5E9; border-left: 4px solid #06A77D; padding: 15px; border-radius: 4px; font-size: 14px; font-weight: bold; color: #1B5E20;">2. Ознакомление с условиями</div>
+                    <div style="background: #E8F5E9; border-left: 4px solid #06A77D; padding: 15px; border-radius: 4px; font-size: 14px; font-weight: bold; color: #1B5E20;">3. Покупка УЦП</div>
+                </div>
+            </div>
+
+        </div>
+        """, unsafe_allow_html=True)
 
     with tab5:
         st.markdown("### Мой портфель цифровых прав")
