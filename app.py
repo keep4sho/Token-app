@@ -1095,7 +1095,7 @@ else:
         * 🟢 **Путь через УЦП (3 шага):** Выбор товара ➔ Ознакомление с условиями ➔ Покупка УЦП.
         """)
 
-    with tab5:
+       with tab5:
         st.markdown("### Мой портфель цифровых прав")
         c1, c2, c3, c4 = st.columns(4)
         with c1:
@@ -1233,4 +1233,3 @@ else:
     </tbody>
 </table>
 """, unsafe_allow_html=True)
-```
