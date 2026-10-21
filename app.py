@@ -876,7 +876,7 @@ if role == "📑 Концепция проекта":
         # ---------- Выводы ----------
         st.markdown("#### ✅ Экономические выводы")
         st.markdown("""
-        <div style="background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%); padding: 22px; border-radius: 10px; border-left: 5px solid #06A77D; color: #333; font-size: 20px; line-height: 1.7;">
+        <div style="background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%); padding: 22px; border-radius: 10px; border-left: 5px solid #06A77D; color: #333; font-size: 18px; line-height: 1.7;">
         <b>1. Проект экономически привлекателен.</b> NPV = 1 704 млн ₽, IRR = 342%, PI = 57× — 
         все метрики значительно превышают пороговые значения. Проект создаёт стоимость 
         уже в базовом сценарии.<br><br>
@@ -1052,14 +1052,11 @@ else:
             """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
         
-        st.markdown("<h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>", unsafe_allow_html=True)
+                st.html("""
+        <h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>
         
-                st.html("<h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>")
-        
-        st.html("""
         <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 30px; border-radius: 12px; border: 1px solid #E5E8EC;">
             
-            <!-- Левая колонка: Старый путь -->
             <div style="width: 40%;">
                 <div style="color: #E63946; font-weight: bold; margin-bottom: 15px; text-align: center; font-size: 16px;">Традиционная сделка</div>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -1073,13 +1070,11 @@ else:
                 </div>
             </div>
 
-            <!-- Стрелка по центру -->
             <div style="width: 20%; text-align: center;">
                 <div style="font-size: 40px; color: #F4A261; margin-bottom: 10px;">➔</div>
                 <div style="font-size: 12px; color: #888; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Экономия 10 дней</div>
             </div>
 
-            <!-- Правая колонка: Новый путь -->
             <div style="width: 40%;">
                 <div style="color: #06A77D; font-weight: bold; margin-bottom: 15px; text-align: center; font-size: 16px;">Сделка через УЦП</div>
                 <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center; height: 80%;">
@@ -1088,7 +1083,6 @@ else:
                     <div style="background: #E8F5E9; border-left: 4px solid #06A77D; padding: 15px; border-radius: 4px; font-size: 14px; font-weight: bold; color: #1B5E20;">3. Покупка УЦП</div>
                 </div>
             </div>
-
         </div>
         """)
 
