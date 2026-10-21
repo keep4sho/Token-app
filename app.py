@@ -140,7 +140,6 @@ fig_sankey = go.Figure(data=[go.Sankey(
                "Выбор", "Условия", "Покупка"],
       color = ["#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", 
                "#06A77D", "#06A77D", "#06A77D"],
-      textfont = dict(color = "white", size = 14, family = "Arial")
     ),
     link = dict(source = [0, 1, 2, 3, 4, 5, 6, 7, 8], target = [7, 7, 8, 8, 8, 9, 9, 9, 9],
       value = [1, 1, 1, 1, 1, 1, 1, 1, 1], color = ["rgba(230,57,70,0.15)"]*7 + ["rgba(6,167,125,0.15)"]*2)
