@@ -1014,7 +1014,7 @@ else:
     
     tab4, tab5, tab6 = st.tabs(["🏪 Витрина УЦП", "📁 Портфель прав", "⚖️ Юридический конструктор"])
     
-    with tab4:
+        with tab4:
         st.markdown("### Доступные предложения")
         c1, c2, c3 = st.columns(3)
         with c1:
@@ -1050,6 +1050,7 @@ else:
                 <button class="btn-buy">Купить УЦП</button>
             </div>
             """, unsafe_allow_html=True)
+            
         st.markdown("<br><br>", unsafe_allow_html=True)
         
         st.html("""
