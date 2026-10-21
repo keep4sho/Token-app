@@ -471,8 +471,8 @@ if role == "📑 Концепция проекта":
               pad = 25, thickness = 25, line = dict(color = "white", width = 1),
               label = ["1. Эмитент создает УЦП", "2. ОИС проверяет решение", "3. Размещение на витрине", 
                        "4. Покупатель выбирает", "5. Сделка (Покупка)", "6. Перевод прав в депозитарий"],
-              color = ["#2E86AB", "#F4A261", "#8E7DBE", "#06A77D", "#06A77D", "#2E86AB"],
-              textfont = dict(color = "black", size = 14, family = "Arial")
+              # Используем светлые (пастельные) цвета для фона, чтобы черный текст читался
+              color = ["#a8d4e6", "#fcd6b3", "#d3cdee", "#a3e6ce", "#a3e6ce", "#a8d4e6"]
             ),
             link = dict(
               source = [0, 1, 2, 3, 4], 
@@ -487,8 +487,6 @@ if role == "📑 Концепция проекта":
             margin=dict(l=20, r=20, t=60, b=20)
         )
         st.plotly_chart(fig_pipeline, use_container_width=True)
-
-        st.markdown("### 📖 Примеры сценариев использования")
         
         with st.expander("Кейс 1: Завод продает будущий урожай"):
             st.markdown("""
