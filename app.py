@@ -145,7 +145,7 @@ fig_sankey = go.Figure(data=[go.Sankey(
       value = [1, 1, 1, 1, 1, 1, 1, 1, 1], color = ["rgba(230,57,70,0.2)"]*7 + ["rgba(6,167,125,0.2)"]*2)
 )])
 fig_sankey.update_layout(title="Трансформация сделки: 7 шагов (Красный) -> 3 шага (Зеленый)", 
-                         height=400, template=T, margin=dict(l=20, r=20, t=60, b=20), font=dict(size=12))
+                         height=400, template=T, margin=dict(l=20, r=20, t=60, b=20), font=dict(size=14, color="#888888"))
 
 df_gantt_buyer = pd.DataFrame([
     dict(Task="Пшеница 3 кл. (1000 т)", Start='2025-05-10', Finish='2025-09-01', Status="В пути"),
@@ -1038,7 +1038,7 @@ else:
                 <div class="product-title">Пшеница 3 класс</div>
                 <div class="product-volume">Объем: 1 000 тонн</div>
                 <div class="product-price">12 200 ₽/т</div>
-                <div class="product-date">Поставка: 01.09.2025</div>
+                <div class="product-date">Поставка: 01.11.2026</div>
                 <button class="btn-buy">Купить УЦП</button>
             </div>
             """, unsafe_allow_html=True)
@@ -1049,7 +1049,7 @@ else:
                 <div class="product-title">Пшеница 4 класс</div>
                 <div class="product-volume">Объем: 500 тонн</div>
                 <div class="product-price">10 800 ₽/т</div>
-                <div class="product-date">Поставка: 15.09.2025</div>
+                <div class="product-date">Поставка: 15.11.2026</div>
                 <button class="btn-buy">Купить УЦП</button>
             </div>
             """, unsafe_allow_html=True)
@@ -1060,7 +1060,7 @@ else:
                 <div class="product-title">Кукуруза фуражная</div>
                 <div class="product-volume">Объем: 2 000 тонн</div>
                 <div class="product-price">9 200 ₽/т</div>
-                <div class="product-date">Поставка: 01.10.2025</div>
+                <div class="product-date">Поставка: 01.12.2026</div>
                 <button class="btn-buy">Купить УЦП</button>
             </div>
             """, unsafe_allow_html=True)
