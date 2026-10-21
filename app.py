@@ -1104,45 +1104,112 @@ else:
             st.plotly_chart(fig_radar, use_container_width=True, key="radar1")
 
     with tab6:
-        st.markdown("### ⚖️ Жизненный цикл УЦП по ФЗ № 282-ФЗ")
-        st.markdown("В соответствии с новым законом «О цифровых валютах и цифровых правах» (вступает в силу с 01.09.2026), УЦП — это имущественное право требования передачи товара. Оно не является средством платежа (в отличие от ЦВ), а выпускается и учитывается в информационной системе Оператора (ОИС).")
-        
-        fig_lifecycle = go.Figure(data=[go.Sankey(
-            node = dict(
-              pad = 25, thickness = 30, line = dict(color = "black", width = 0.5),
-              label = ["Эмитент (Продавец)", "Решение о выпуске УЦП", "ОИС (Оператор)", 
-                       "Цифровой депозитарий", "Покупатель (Инвестор)", "Исполнение (Поставка товара)"],
-              color = ["#2E86AB", "#F4A261", "#8E7DBE", "#06A77D", "#2E86AB", "#06A77D"]
-            ),
-            link = dict(
-              source = [0, 0, 1, 2, 2, 4, 0], 
-              target = [1, 2, 2, 3, 4, 5, 5],
-              value = [10, 5, 10, 10, 5, 5, 5],
-              color = ["rgba(46,134,171,0.3)", "rgba(46,134,171,0.3)", "rgba(244,162,97,0.3)", 
-                       "rgba(142,125,190,0.3)", "rgba(142,125,190,0.3)", "rgba(46,134,171,0.3)", "rgba(6,167,125,0.3)"]
-            )
-        )])
-        fig_lifecycle.update_layout(title="Схема движения прав: от Эмитента к Покупателю", height=450, template=T, margin=dict(l=20, r=20, t=60, b=20), font=dict(size=13))
-        st.plotly_chart(fig_lifecycle, use_container_width=True, key="sankey_law")
+        # --- ЗАГОЛОВОК ---
+        st.markdown("### ⚖️ Жизненный цикл УЦП и правовой статус")
+        st.markdown("В соответствии с новым законом «О цифровых валютах и цифровых правах» (вступает в силу с 01.09.2026), **УЦП — это имущественное право** требования передачи товара. Оно защищается в суде, но не является средством платежа.")
+        st.markdown("<br>", unsafe_allow_html=True)
 
-        st.markdown("---")
-        st.markdown("### 📊 Сравнение инструментов: УЦП vs ЦФА")
+        # --- БЛОК 1: ЖИЗНЕННЫЙ ЦИКЛ (HTML Инфографика) ---
+        st.markdown("#### 🔄 Как живет УЦП: от выпуска до поставки")
         
-        df_compare = pd.DataFrame({
-            "Характеристика": ["Суть инструмента", "Базовый актив", "Цель выпуска", "Может ли быть средством платежа?", "Где учитывается?"],
-            "УЦП (Утилитарные права)": [
-                "Право требовать передачи вещи, выполнения работ или услуг",
-                "Реальные товары, сырье, услуги",
-                "Финансирование производства, гарантия сбыта",
-                "Нет (ст. 1 п. 6 282-ФЗ). Только имущественное право",
-                "ОИС, Цифровой депозитарий (ст. 22)"
-            ],
-            "ЦФА (Цифровые финансы)": [
-                "Денежные требования, права на акции (цифровые акции)",
-                "Деньги, эмиссионные ценные бумаги",
-                "Привлечение инвестиций, секьюритизация",
-                "Нет (ст. 1 п. 6 282-ФЗ). Только имущественное право",
-                "ОИС, Цифровой депозитарий (ст. 22)"
-            ]
-        })
-        st.dataframe(df_compare, use_container_width=True, hide_index=True)
+        st.markdown("""
+        <div style="display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 30px;">
+            
+            <!-- Шаг 1 -->
+            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #2E86AB; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
+                <div style="font-size: 30px; margin-bottom: 10px;">📝</div>
+                <div style="font-weight: bold; color: #2E86AB; margin-bottom: 8px; font-size: 16px;">1. Выпуск</div>
+                <div style="font-size: 13px; color: #555;">Эмитент фиксирует условия (объем, цена, сроки) в решении о выпуске. ОИС размещает УЦП в своей системе. <i>(Ст. 6, 7)</i></div>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #8E7DBE; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
+                <div style="font-size: 30px; margin-bottom: 10px;">🏦</div>
+                <div style="font-weight: bold; color: #8E7DBE; margin-bottom: 8px; font-size: 16px;">2. Учет</div>
+                <div style="font-size: 13px; color: #555;">УЦП учитываются на цифровых счетах в Цифровом депозитарии. Права на них возникают с момента внесения записи. <i>(Ст. 22)</i></div>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #F4A261; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
+                <div style="font-size: 30px; margin-bottom: 10px;">💸</div>
+                <div style="font-weight: bold; color: #F4A261; margin-bottom: 8px; font-size: 16px;">3. Сделка</div>
+                <div style="font-size: 13px; color: #555;">Покупатель приобретает УЦП. Вторичный рынок больше не «заперт» в одной системе, возможен учет в разных депозитариях. <i>(Ст. 17, 22)</i></div>
+            </div>
+
+            <!-- Шаг 4 -->
+            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #06A77D; border-radius: 8px; padding: 20px; text-align: center;">
+                <div style="font-size: 30px; margin-bottom: 10px;">📦</div>
+                <div style="font-weight: bold; color: #06A77D; margin-bottom: 8px; font-size: 16px;">4. Поставка</div>
+                <div style="font-size: 13px; color: #555;">Эмитент исполняет обязательства (отгружает товар). После полного исполнения учет УЦП прекращается (погашается). <i>(Ст. 26, 27)</i></div>
+            </div>
+
+        </div>
+        """, unsafe_allow_html=True)
+
+        # --- БЛОК 2: ГЛАВНЫЕ АКЦЕНТЫ ---
+        st.markdown("#### 🎯 На что обратить внимание (Согласно ФЗ-282)")
+        
+        col_acc1, col_acc2 = st.columns(2)
+        with col_acc1:
+            st.markdown("""
+            <div style="background: #FFF3CD; border-left: 5px solid #FFC107; padding: 15px; border-radius: 5px; height: 100%;">
+                <b style="color: #856404;">🚫 Запрет на платежи (Ст. 1 п. 6)</b><br>
+                <span style="font-size: 14px; color: #333;">УЦП нельзя использовать как средство оплаты товаров или услуг внутри РФ. Это строго имущественное право требования.</span>
+            </div>
+            """, unsafe_allow_html=True)
+        with col_acc2:
+            st.markdown("""
+            <div style="background: #D4EDDA; border-left: 5px solid #28A745; padding: 15px; border-radius: 5px; height: 100%;">
+                <b style="color: #155724;">🛡️ Судебная защита (Ст. 2)</b><br>
+                <span style="font-size: 14px; color: #333;">Цифровые права официально признаны имуществом. Их можно включать в завещания, делить при разводе и защищать в суде.</span>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown("---")
+
+        # --- БЛОК 3: СРАВНЕНИЕ УЦП И ЦФА ---
+        st.markdown("#### 📊 Сравнение инструментов: УЦП vs ЦФА")
+        st.markdown("Оба инструмента регулируются одним законом № 282-ФЗ, но имеют разную экономическую суть.")
+
+        st.markdown("""
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px;">
+            <thead>
+                <tr style="background-color: #2E86AB; color: white;">
+                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Характеристика</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">УЦП (Утилитарные права)</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">ЦФА (Цифровые финансы)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Суть инструмента</b></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Право требовать передачи вещи, выполнения работ или услуг <i>(Ст. 2 п. 18)</i></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Денежные требования, права на акции непубличного АО <i>(Ст. 2 п. 15)</i></td>
+                </tr>
+                <tr style="background-color: #F9F9F9;">
+                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Базовый актив</b></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Реальные товары (зерно, металл), сырье, услуги</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Деньги, эмиссионные ценные бумаги</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Средство платежа</b></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Запрещено <i>(Ст. 1 п. 6)</i></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Запрещено <i>(Ст. 1 п. 6)</i></td>
+                </tr>
+                <tr style="background-color: #F9F9F9;">
+                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Где учитывается</b></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;" colspan="2">ОИС (Оператор) и Цифровой депозитарий <i>(Ст. 17, 22)</i></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Цель выпуска</b></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Финансирование производства (предоплата), гарантия сбыта</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Привлечение инвестиций, секьюритизация</td>
+                </tr>
+                <tr style="background-color: #F9F9F9;">
+                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Сроки запуска</b></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;" colspan="2">01.09.2026 (базовые нормы), 01.07.2027 (обязательная инфраструктура) <i>(Ст. 56)</i></td>
+                </tr>
+            </tbody>
+        </table>
+        """, unsafe_allow_html=True)
