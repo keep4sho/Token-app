@@ -466,7 +466,7 @@ if role == "📑 Концепция проекта":
     with c_tab3:
         st.markdown("### ⚙️ Схема работы продукта")
         
-                st.markdown("""
+        st.markdown("""
         <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 20px; border-radius: 10px; border: 1px solid #E5E8EC; margin-bottom: 20px;">
             <div style="text-align: center; flex: 1;">
                 <div style="background: #2E86AB; color: white; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 auto 10px; font-weight: bold;">1</div>
