@@ -658,36 +658,6 @@ if role == "📑 Концепция проекта":
             - **Прочее** — офис, IT, аутсорсинг
             """)
         
-            df_costs = pd.DataFrame({
-                "Категория": [
-                    "ФОТ (разработка, продажи, поддержка)",
-                    "Облачная инфраструктура",
-                    "Маркетинг и B2B-продажи",
-                    "Юридические и комплаенс",
-                    "Прочее (офис, IT, аутсорсинг)",
-                ],
-                "2026": [30, 5, 8, 3, 2],
-                "2027": [42, 8, 12, 5, 3],
-                "2028": [90, 25, 35, 15, 15],
-            })
-        
-            fig_costs = go.Figure()
-            cost_colors_list = [P[0], P[1], P[2], P[3], P[4]]
-            for i in range(5):
-                fig_costs.add_trace(go.Bar(
-                    name=df_costs.iloc[i]["Категория"].split(" (")[0],
-                    x=["2026", "2027", "2028"],
-                    y=[df_costs.iloc[i]["2026"], df_costs.iloc[i]["2027"], df_costs.iloc[i]["2028"]],
-                    marker_color=cost_colors_list[i]
-                ))
-            fig_costs.update_layout(
-                barmode="stack", title="Структура OPEX по категориям, млн ₽",
-                height=400, template=T, yaxis_title="млн ₽",
-                margin=dict(l=20, r=20, t=50, b=80),
-                legend=dict(orientation="h", yanchor="bottom", y=-0.35, x=0)
-            )
-            st.plotly_chart(fig_costs, use_container_width=True, key="econ_costs")
-        
             st.markdown("""
             **Ключевой эффект масштаба.** OPEX растёт в **3.75×** (48 → 180 млн ₽), 
             а выручка — в **20×** (27 → 540 млн ₽). Именно поэтому EBITDA margin 
