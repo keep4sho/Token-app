@@ -1012,7 +1012,7 @@ else:
     st.title("🛒 Витрина цифровых прав")
     st.caption("Покупайте права на поставку продукции в несколько кликов")
     
-    tab4, tab5, tab6 = st.tabs(["🏪 Витрина УЦП", "📁 Портфель прав", "⚖️ Юридический конструктор"])
+    tab4, tab5, tab6 = st.tabs(["🏪 Витрина УЦП", "📁 Портфель прав", "⚖️ Правовое регулирование"])
     
     with tab4:
         st.markdown("### Доступные предложения")
@@ -1103,113 +1103,119 @@ else:
         with col2:
             st.plotly_chart(fig_radar, use_container_width=True, key="radar1")
 
-    with tab6:
-        # --- ЗАГОЛОВОК ---
-        st.markdown("### ⚖️ Жизненный цикл УЦП и правовой статус")
-        st.markdown("В соответствии с новым законом «О цифровых валютах и цифровых правах» (вступает в силу с 01.09.2026), **УЦП — это имущественное право** требования передачи товара. Оно защищается в суде, но не является средством платежа.")
+        with tab6:
+        st.markdown("### ⚖️ Правовой статус УЦП по ФЗ № 282-ФЗ")
+        st.markdown("В соответствии с Федеральным законом от 04.08.2026 № 282-ФЗ, **УЦП (Утилитарные цифровые права) — это имущественное право** требования передачи вещи, выполнения работ или оказания услуг (ст. 2 п. 18).")
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- БЛОК 1: ЖИЗНЕННЫЙ ЦИКЛ (HTML Инфографика) ---
-        st.markdown("#### 🔄 Как живет УЦП: от выпуска до поставки")
+        # --- БЛОК 1: ЖИЗНЕННЫЙ ЦИКЛ ---
+        st.markdown("#### 🔄 Жизненный цикл УЦП (от выпуска до погашения)")
         
         st.markdown("""
-        <div style="display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 30px;">
-            
-            <!-- Шаг 1 -->
-            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #2E86AB; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
-                <div style="font-size: 30px; margin-bottom: 10px;">📝</div>
-                <div style="font-weight: bold; color: #2E86AB; margin-bottom: 8px; font-size: 16px;">1. Выпуск</div>
-                <div style="font-size: 13px; color: #555;">Эмитент фиксирует условия (объем, цена, сроки) в решении о выпуске. ОИС размещает УЦП в своей системе. <i>(Ст. 6, 7)</i></div>
-            </div>
+<div style="display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 30px;">
+    
+    <!-- Шаг 1 -->
+    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #2E86AB; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
+        <div style="font-size: 30px; margin-bottom: 10px;">📝</div>
+        <div style="font-weight: bold; color: #2E86AB; margin-bottom: 8px; font-size: 16px;">1. Выпуск</div>
+        <div style="font-size: 13px; color: #555;">Эмитент формирует <b>решение о выпуске</b> (объем, цена, сроки). Оператор (ОИС) вносит записи в свою систему. <i>(Ст. 6, 7)</i></div>
+    </div>
 
-            <!-- Шаг 2 -->
-            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #8E7DBE; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
-                <div style="font-size: 30px; margin-bottom: 10px;">🏦</div>
-                <div style="font-weight: bold; color: #8E7DBE; margin-bottom: 8px; font-size: 16px;">2. Учет</div>
-                <div style="font-size: 13px; color: #555;">УЦП учитываются на цифровых счетах в Цифровом депозитарии. Права на них возникают с момента внесения записи. <i>(Ст. 22)</i></div>
-            </div>
+    <!-- Шаг 2 -->
+    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #8E7DBE; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
+        <div style="font-size: 30px; margin-bottom: 10px;">🏦</div>
+        <div style="font-weight: bold; color: #8E7DBE; margin-bottom: 8px; font-size: 16px;">2. Учет</div>
+        <div style="font-size: 13px; color: #555;">Права учитываются на <b>цифровых счетах</b>. УЦП больше не «заперты» в одной системе — учет доступен в цифровых депозитариях. <i>(Ст. 17, 22)</i></div>
+    </div>
 
-            <!-- Шаг 3 -->
-            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #F4A261; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
-                <div style="font-size: 30px; margin-bottom: 10px;">💸</div>
-                <div style="font-weight: bold; color: #F4A261; margin-bottom: 8px; font-size: 16px;">3. Сделка</div>
-                <div style="font-size: 13px; color: #555;">Покупатель приобретает УЦП. Вторичный рынок больше не «заперт» в одной системе, возможен учет в разных депозитариях. <i>(Ст. 17, 22)</i></div>
-            </div>
+    <!-- Шаг 3 -->
+    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #F4A261; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
+        <div style="font-size: 30px; margin-bottom: 10px;">💸</div>
+        <div style="font-weight: bold; color: #F4A261; margin-bottom: 8px; font-size: 16px;">3. Обращение</div>
+        <div style="font-size: 13px; color: #555;">Переход прав от одного владельца к другому. Возможен вторичный рынок (купля-продажа, залог). <i>(Ст. 22, 24)</i></div>
+    </div>
 
-            <!-- Шаг 4 -->
-            <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #06A77D; border-radius: 8px; padding: 20px; text-align: center;">
-                <div style="font-size: 30px; margin-bottom: 10px;">📦</div>
-                <div style="font-weight: bold; color: #06A77D; margin-bottom: 8px; font-size: 16px;">4. Поставка</div>
-                <div style="font-size: 13px; color: #555;">Эмитент исполняет обязательства (отгружает товар). После полного исполнения учет УЦП прекращается (погашается). <i>(Ст. 26, 27)</i></div>
-            </div>
+    <!-- Шаг 4 -->
+    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #06A77D; border-radius: 8px; padding: 20px; text-align: center;">
+        <div style="font-size: 30px; margin-bottom: 10px;">📦</div>
+        <div style="font-weight: bold; color: #06A77D; margin-bottom: 8px; font-size: 16px;">4. Погашение</div>
+        <div style="font-size: 13px; color: #555;">Эмитент исполняет обязательства. Записи об УЦП погашаются в информационной системе без дополнительного волеизъявления. <i>(Ст. 26, 27)</i></div>
+    </div>
 
-        </div>
-        """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
-        # --- БЛОК 2: ГЛАВНЫЕ АКЦЕНТЫ ---
-        st.markdown("#### 🎯 На что обратить внимание (Согласно ФЗ-282)")
+        # --- БЛОК 2: ЮРИДИЧЕСКИЕ АКЦЕНТЫ ---
+        st.markdown("#### 🎯 Ключевые ограничения и защита")
         
         col_acc1, col_acc2 = st.columns(2)
         with col_acc1:
             st.markdown("""
-            <div style="background: #FFF3CD; border-left: 5px solid #FFC107; padding: 15px; border-radius: 5px; height: 100%;">
-                <b style="color: #856404;">🚫 Запрет на платежи (Ст. 1 п. 6)</b><br>
-                <span style="font-size: 14px; color: #333;">УЦП нельзя использовать как средство оплаты товаров или услуг внутри РФ. Это строго имущественное право требования.</span>
-            </div>
-            """, unsafe_allow_html=True)
+<div style="background: #FFF3CD; border-left: 5px solid #FFC107; padding: 15px; border-radius: 5px; height: 100%;">
+    <b style="color: #856404;">🚫 Запрет на средство платежа (Ст. 1 п. 6)</b><br>
+    <span style="font-size: 14px; color: #333;">УЦП нельзя использовать для оплаты товаров/услуг внутри РФ (кроме внешнеторговых контрактов). Это строго право требования, а не деньги.</span>
+</div>
+""", unsafe_allow_html=True)
         with col_acc2:
             st.markdown("""
-            <div style="background: #D4EDDA; border-left: 5px solid #28A745; padding: 15px; border-radius: 5px; height: 100%;">
-                <b style="color: #155724;">🛡️ Судебная защита (Ст. 2)</b><br>
-                <span style="font-size: 14px; color: #333;">Цифровые права официально признаны имуществом. Их можно включать в завещания, делить при разводе и защищать в суде.</span>
-            </div>
-            """, unsafe_allow_html=True)
-            
-        st.markdown("<br><br>", unsafe_allow_html=True)
+<div style="background: #D4EDDA; border-left: 5px solid #28A745; padding: 15px; border-radius: 5px; height: 100%;">
+    <b style="color: #155724;">🛡️ Имущественный статус (Ст. 2)</b><br>
+    <span style="font-size: 14px; color: #333;">Цифровые права признаны имуществом. Владельцы могут защищать их в суде, включать в завещания и делить при разводе.</span>
+</div>
+""", unsafe_allow_html=True)
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        st.info("""
+**⚖️ Цифровой анализ (AML) и ПОД/ФТ (Ст. 35):** 
+Участники рынка (ОИС, депозитарии) обязаны проверять транзакции и адреса-идентификаторы на связь с преступной деятельностью. С 1 сентября 2027 г. вводятся антифрод-требования и периоды «охлаждения» для отдельных операций.
+""")
+
         st.markdown("---")
 
         # --- БЛОК 3: СРАВНЕНИЕ УЦП И ЦФА ---
         st.markdown("#### 📊 Сравнение инструментов: УЦП vs ЦФА")
-        st.markdown("Оба инструмента регулируются одним законом № 282-ФЗ, но имеют разную экономическую суть.")
+        st.markdown("Оба инструмента регулируются Законом № 282-ФЗ, но преследуют разные экономические цели.")
 
         st.markdown("""
-        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px;">
-            <thead>
-                <tr style="background-color: #2E86AB; color: white;">
-                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Характеристика</th>
-                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">УЦП (Утилитарные права)</th>
-                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">ЦФА (Цифровые финансы)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Суть инструмента</b></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Право требовать передачи вещи, выполнения работ или услуг <i>(Ст. 2 п. 18)</i></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Денежные требования, права на акции непубличного АО <i>(Ст. 2 п. 15)</i></td>
-                </tr>
-                <tr style="background-color: #F9F9F9;">
-                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Базовый актив</b></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Реальные товары (зерно, металл), сырье, услуги</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Деньги, эмиссионные ценные бумаги</td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Средство платежа</b></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Запрещено <i>(Ст. 1 п. 6)</i></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Запрещено <i>(Ст. 1 п. 6)</i></td>
-                </tr>
-                <tr style="background-color: #F9F9F9;">
-                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Где учитывается</b></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;" colspan="2">ОИС (Оператор) и Цифровой депозитарий <i>(Ст. 17, 22)</i></td>
-                </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Цель выпуска</b></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Финансирование производства (предоплата), гарантия сбыта</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">Привлечение инвестиций, секьюритизация</td>
-                </tr>
-                <tr style="background-color: #F9F9F9;">
-                    <td style="padding: 12px; border: 1px solid #ddd;"><b>Сроки запуска</b></td>
-                    <td style="padding: 12px; border: 1px solid #ddd;" colspan="2">01.09.2026 (базовые нормы), 01.07.2027 (обязательная инфраструктура) <i>(Ст. 56)</i></td>
-                </tr>
-            </tbody>
-        </table>
-        """, unsafe_allow_html=True)
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px;">
+    <thead>
+        <tr style="background-color: #2E86AB; color: white;">
+            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Параметр</th>
+            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">УЦП (Утилитарные права)</th>
+            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">ЦФА (Цифровые финансы)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;"><b>Правовая суть</b></td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Право требовать передачи вещи, работ, услуг <i>(Ст. 2 п. 18)</i></td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Денежные требования, права на акции (цифровые акции) <i>(Ст. 2 п. 15, 17)</i></td>
+        </tr>
+        <tr style="background-color: #F9F9F9;">
+            <td style="padding: 12px; border: 1px solid #ddd;"><b>Базовый актив</b></td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Реальные товары (зерно, сырье, металлы), услуги</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Деньги, эмиссионные ценные бумаги</td>
+        </tr>
+        <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;"><b>Использование как платеж</b></td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Запрещено (ст. 1 п. 6)</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Запрещено (ст. 1 п. 6)</td>
+        </tr>
+        <tr style="background-color: #F9F9F9;">
+            <td style="padding: 12px; border: 1px solid #ddd;"><b>Инфраструктура учета</b></td>
+            <td style="padding: 12px; border: 1px solid #ddd;" colspan="2">Оператор информационной системы (ОИС) и Цифровой депозитарий <i>(Ст. 17, 22)</i></td>
+        </tr>
+        <tr>
+            <td style="padding: 12px; border: 1px solid #ddd;"><b>Цель выпуска</b></td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Финансирование производства (предоплата), гарантия сбыта</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Привлечение инвестиций, секьюритизация активов</td>
+        </tr>
+        <tr style="background-color: #F9F9F9;">
+            <td style="padding: 12px; border: 1px solid #ddd;"><b>Доступ для физлиц</b></td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Без ограничений (если не ограничено решением о выпуске)</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">Неквалам — тестирование и лимиты; квалам — без ограничений <i>(Ст. 31, 32)</i></td>
+        </tr>
+    </tbody>
+</table>
+""", unsafe_allow_html=True)
