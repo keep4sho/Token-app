@@ -890,7 +890,7 @@ if role == "📑 Концепция проекта":
             # ---------- Выводы ----------
             st.markdown("#### ✅ Экономические выводы")
             st.markdown("""
-            <div style="background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%); padding: 22px; border-radius: 10px; border-left: 5px solid #06A77D; color: #333; font-size: 18px; line-height: 1.7;">
+            <div style="background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%); padding: 22px; border-radius: 10px; border-left: 5px solid #06A77D; color: #333; font-size: 20px; line-height: 1.7;">
             <b>1. Проект экономически привлекателен.</b> NPV = 1 704 млн ₽, IRR = 342%, PI = 57× — 
             все метрики значительно превышают пороговые значения. Проект создаёт стоимость 
             уже в базовом сценарии.<br><br>
