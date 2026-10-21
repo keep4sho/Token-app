@@ -8,7 +8,7 @@ import numpy as np
 # 1. НАСТРОЙКИ СТРАНИЦЫ И СТИЛИ
 # ---------------------------------------------------------
 st.set_page_config(
-    page_title="Token Sales Terminal",
+    page_title="Терминал утилитарных цифровых прав (УЦП)",
     page_icon="🏭",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -159,7 +159,7 @@ fig_radar.update_layout(
 # ---------------------------------------------------------
 # 3. САЙДБАР
 # ---------------------------------------------------------
-st.sidebar.markdown("## 🏭 Token Sales Terminal")
+st.sidebar.markdown("## 🏭 Терминал УЦП")
 st.sidebar.caption("B2B-платформа для торговли УЦП")
 st.sidebar.markdown("---")
 
@@ -178,7 +178,7 @@ st.sidebar.caption("Оператор: ОИС 'Цифровой Актив'")
 if role == "📑 Концепция проекта":
     st.markdown("""
     <div class="concept-hero">
-        <h1>Token Sales Terminal</h1>
+        <h1>Терминал УЦП</h1>
         <p>B2B-платформа для токенизации продаж производственных предприятий</p>
         <p style="font-size:14px; opacity:0.8; margin-top:10px">Сокращаем цикл сделки с 7 дней до 1 дня с помощью УЦП</p>
     </div>
