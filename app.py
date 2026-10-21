@@ -1052,7 +1052,7 @@ else:
             """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
         
-                st.html("""
+        st.html("""
         <h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>
         
         <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 30px; border-radius: 12px; border: 1px solid #E5E8EC;">
