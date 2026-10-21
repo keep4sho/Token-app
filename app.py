@@ -1108,42 +1108,16 @@ else:
         st.markdown("В соответствии с Федеральным законом от 04.08.2026 № 282-ФЗ, **УЦП (Утилитарные цифровые права) — это имущественное право** требования передачи вещи, выполнения работ или оказания услуг (ст. 2 п. 18).")
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- БЛОК 1: ЖИЗНЕННЫЙ ЦИКЛ ---
+        # --- БЛОК 1: ЖИЗНЕННЫЙ ЦИКЛ (заменен на встроенные компоненты Streamlit) ---
         st.markdown("#### 🔄 Жизненный цикл УЦП (от выпуска до погашения)")
         
-        st.markdown("""
-<div style="display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 30px;">
-    
-    <!-- Шаг 1 -->
-    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #2E86AB; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
-        <div style="font-size: 30px; margin-bottom: 10px;">📝</div>
-        <div style="font-weight: bold; color: #2E86AB; margin-bottom: 8px; font-size: 16px;">1. Выпуск</div>
-        <div style="font-size: 13px; color: #555;">Эмитент формирует <b>решение о выпуске</b> (объем, цена, сроки). Оператор (ОИС) вносит записи в свою систему. <i>(Ст. 6, 7)</i></div>
-    </div>
+        st.info("**1. Выпуск** — Эмитент формирует **решение о выпуске** (объем, цена, сроки). Оператор (ОИС) вносит записи в свою систему. *(Ст. 6, 7)*")
+        st.success("**2. Учет** — Права учитываются на **цифровых счетах**. УЦП больше не «заперты» в одной системе — учет доступен в цифровых депозитариях. *(Ст. 17, 22)*")
+        st.warning("**3. Обращение** — Переход прав от одного владельца к другому. Возможен вторичный рынок (купля-продажа, залог). *(Ст. 22, 24)*")
+        st.error("**4. Погашение** — Эмитент исполняет обязательства. Записи об УЦП погашаются в информационной системе без дополнительного волеизъявления. *(Ст. 26, 27)*")
 
-    <!-- Шаг 2 -->
-    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #8E7DBE; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
-        <div style="font-size: 30px; margin-bottom: 10px;">🏦</div>
-        <div style="font-weight: bold; color: #8E7DBE; margin-bottom: 8px; font-size: 16px;">2. Учет</div>
-        <div style="font-size: 13px; color: #555;">Права учитываются на <b>цифровых счетах</b>. УЦП больше не «заперты» в одной системе — учет доступен в цифровых депозитариях. <i>(Ст. 17, 22)</i></div>
-    </div>
-
-    <!-- Шаг 3 -->
-    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #F4A261; border-radius: 8px; padding: 20px; margin-right: 15px; text-align: center;">
-        <div style="font-size: 30px; margin-bottom: 10px;">💸</div>
-        <div style="font-weight: bold; color: #F4A261; margin-bottom: 8px; font-size: 16px;">3. Обращение</div>
-        <div style="font-size: 13px; color: #555;">Переход прав от одного владельца к другому. Возможен вторичный рынок (купля-продажа, залог). <i>(Ст. 22, 24)</i></div>
-    </div>
-
-    <!-- Шаг 4 -->
-    <div style="flex: 1; background: #F8F9FA; border: 1px solid #E5E8EC; border-top: 4px solid #06A77D; border-radius: 8px; padding: 20px; text-align: center;">
-        <div style="font-size: 30px; margin-bottom: 10px;">📦</div>
-        <div style="font-weight: bold; color: #06A77D; margin-bottom: 8px; font-size: 16px;">4. Погашение</div>
-        <div style="font-size: 13px; color: #555;">Эмитент исполняет обязательства. Записи об УЦП погашаются в информационной системе без дополнительного волеизъявления. <i>(Ст. 26, 27)</i></div>
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
+        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown("---")
 
         # --- БЛОК 2: ЮРИДИЧЕСКИЕ АКЦЕНТЫ ---
         st.markdown("#### 🎯 Ключевые ограничения и защита")
@@ -1151,18 +1125,18 @@ else:
         col_acc1, col_acc2 = st.columns(2)
         with col_acc1:
             st.markdown("""
-<div style="background: #FFF3CD; border-left: 5px solid #FFC107; padding: 15px; border-radius: 5px; height: 100%;">
-    <b style="color: #856404;">🚫 Запрет на средство платежа (Ст. 1 п. 6)</b><br>
-    <span style="font-size: 14px; color: #333;">УЦП нельзя использовать для оплаты товаров/услуг внутри РФ (кроме внешнеторговых контрактов). Это строго право требования, а не деньги.</span>
-</div>
-""", unsafe_allow_html=True)
+            <div style="background: #FFF3CD; border-left: 5px solid #FFC107; padding: 15px; border-radius: 5px; height: 100%;">
+                <b style="color: #856404;">🚫 Запрет на средство платежа (Ст. 1 п. 6)</b><br>
+                <span style="font-size: 14px; color: #333;">УЦП нельзя использовать для оплаты товаров/услуг внутри РФ (кроме внешнеторговых контрактов). Это строго право требования, а не деньги.</span>
+            </div>
+            """, unsafe_allow_html=True)
         with col_acc2:
             st.markdown("""
-<div style="background: #D4EDDA; border-left: 5px solid #28A745; padding: 15px; border-radius: 5px; height: 100%;">
-    <b style="color: #155724;">🛡️ Имущественный статус (Ст. 2)</b><br>
-    <span style="font-size: 14px; color: #333;">Цифровые права признаны имуществом. Владельцы могут защищать их в суде, включать в завещания и делить при разводе.</span>
-</div>
-""", unsafe_allow_html=True)
+            <div style="background: #D4EDDA; border-left: 5px solid #28A745; padding: 15px; border-radius: 5px; height: 100%;">
+                <b style="color: #155724;">🛡️ Имущественный статус (Ст. 2)</b><br>
+                <span style="font-size: 14px; color: #333;">Цифровые права признаны имуществом. Владельцы могут защищать их в суде, включать в завещания и делить при разводе.</span>
+            </div>
+            """, unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
         
