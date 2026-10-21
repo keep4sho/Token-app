@@ -133,20 +133,6 @@ fig_heatmap = go.Figure(data=go.Heatmap(
 fig_heatmap.update_layout(title="Календарь поставок (6 недель)", height=400, template=T,
                           margin=dict(l=100, r=20, t=60, b=20), yaxis=dict(autorange="reversed"))
 
-fig_sankey = go.Figure(data=[go.Sankey(
-    node = dict(
-      pad = 20, thickness = 25, line = dict(color = "black", width = 0.5),
-      label = ["Поиск поставщика", "Получение КП", "Согласование договора", "Согласование спецификации", "Получение счета", "Оплата", "Ожидание поставки",
-               "Выбор товара", "Ознакомление с условиями", "Покупка УЦП"],
-      color = ["#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", "#E63946", 
-               "#06A77D", "#06A77D", "#06A77D"]
-    ),
-    link = dict(source = [0, 1, 2, 3, 4, 5, 6, 7, 8], target = [7, 7, 8, 8, 8, 9, 9, 9, 9],
-      value = [1, 1, 1, 1, 1, 1, 1, 1, 1], color = ["rgba(230,57,70,0.2)"]*7 + ["rgba(6,167,125,0.2)"]*2)
-)])
-fig_sankey.update_layout(title="Трансформация сделки: 7 шагов (Красный) -> 3 шага (Зеленый)", 
-                         height=400, template=T, margin=dict(l=20, r=20, t=60, b=20), font=dict(size=12))
-
 df_gantt_buyer = pd.DataFrame([
     dict(Task="Пшеница 3 кл. (1000 т)", Start='2025-05-10', Finish='2025-09-01', Status="В пути"),
     dict(Task="Кукуруза (500 т)", Start='2025-06-15', Finish='2025-10-01', Status="Ожидает производства"),
@@ -1066,8 +1052,35 @@ else:
             """, unsafe_allow_html=True)
         st.markdown("<br><br>", unsafe_allow_html=True)
         
-        # Возвращаем оригинальный рабочий график
-        st.plotly_chart(fig_sankey, use_container_width=True, key="sankey1")
+                # --- НОВЫЙ ГРАФИК ВМЕСТО SANKEY ---
+        st.markdown("#### ⚡ Трансформация сделки")
+        
+        fig_transform = go.Figure(go.Bar(
+            y=["Традиционная сделка", "Сделка через УЦП"],
+            x=[7, 3],
+            orientation='h',
+            marker_color=['#E63946', '#06A77D'],
+            text=["7 шагов (до 10 дней)", "3 шага (1 день)"],
+            textposition='inside',
+            textfont=dict(color='white', size=15, weight='bold')
+        ))
+        
+        fig_transform.update_layout(
+            title="Сокращение пути сделки: от 7 шагов к 3",
+            xaxis_title="Количество этапов (шагов)",
+            yaxis_title="",
+            height=300,
+            template=T,
+            margin=dict(l=20, r=20, t=60, b=20),
+            showlegend=False
+        )
+        st.plotly_chart(fig_transform, use_container_width=True, key="transform_chart")
+        
+        st.markdown("""
+        **В чем разница?**
+        * 🔴 **Традиционный путь (7 шагов):** Поиск поставщика ➔ Получение КП ➔ Согласование договора ➔ Согласование спецификации ➔ Получение счета ➔ Оплата ➔ Ожидание поставки.
+        * 🟢 **Путь через УЦП (3 шага):** Выбор товара ➔ Ознакомление с условиями ➔ Покупка УЦП.
+        """)
 
     with tab5:
         st.markdown("### Мой портфель цифровых прав")
