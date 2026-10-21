@@ -466,27 +466,45 @@ if role == "📑 Концепция проекта":
     with c_tab3:
         st.markdown("### ⚙️ Схема работы продукта")
         
-        fig_pipeline = go.Figure(data=[go.Sankey(
-            textfont=dict(color="black", size=14), # <--- Настройка шрифта для всего графика
-            node = dict(
-              pad = 25, thickness = 25, line = dict(color = "white", width = 1),
-              label = ["1. Эмитент создает УЦП", "2. ОИС проверяет решение", "3. Размещение на витрине", 
-                       "4. Покупатель выбирает", "5. Сделка (Покупка)", "6. Перевод прав в депозитарий"],
-              color = ["#a8d4e6", "#fcd6b3", "#d3cdee", "#a3e6ce", "#a3e6ce", "#a8d4e6"]
-            ),
-            link = dict(
-              source = [0, 1, 2, 3, 4], 
-              target = [1, 2, 3, 4, 5],
-              value = [10, 10, 10, 10, 10],
-              color = ["rgba(46,134,171,0.3)", "rgba(244,162,97,0.3)", "rgba(142,125,190,0.3)", "rgba(6,167,125,0.3)", "rgba(6,167,125,0.3)"]
-            )
-        )])
-        fig_pipeline.update_layout(
-            title="Pipeline создания и покупки УЦП", 
-            height=400, template=T,
-            margin=dict(l=20, r=20, t=60, b=20)
-        )
-        st.plotly_chart(fig_pipeline, use_container_width=True)
+                st.markdown("""
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 20px; border-radius: 10px; border: 1px solid #E5E8EC; margin-bottom: 20px;">
+            <div style="text-align: center; flex: 1;">
+                <div style="background: #2E86AB; color: white; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 auto 10px; font-weight: bold;">1</div>
+                <div style="font-weight: bold; font-size: 14px; color: #333;">Эмитент</div>
+                <div style="font-size: 12px; color: #666;">Создает УЦП</div>
+            </div>
+            <div style="color: #F4A261; font-size: 24px; font-weight: bold;">➔</div>
+            <div style="text-align: center; flex: 1;">
+                <div style="background: #F4A261; color: white; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 auto 10px; font-weight: bold;">2</div>
+                <div style="font-weight: bold; font-size: 14px; color: #333;">ОИС</div>
+                <div style="font-size: 12px; color: #666;">Проверяет</div>
+            </div>
+            <div style="color: #F4A261; font-size: 24px; font-weight: bold;">➔</div>
+            <div style="text-align: center; flex: 1;">
+                <div style="background: #8E7DBE; color: white; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 auto 10px; font-weight: bold;">3</div>
+                <div style="font-weight: bold; font-size: 14px; color: #333;">Витрина</div>
+                <div style="font-size: 12px; color: #666;">Размещение</div>
+            </div>
+            <div style="color: #F4A261; font-size: 24px; font-weight: bold;">➔</div>
+            <div style="text-align: center; flex: 1;">
+                <div style="background: #06A77D; color: white; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 auto 10px; font-weight: bold;">4</div>
+                <div style="font-weight: bold; font-size: 14px; color: #333;">Покупатель</div>
+                <div style="font-size: 12px; color: #666;">Выбирает</div>
+            </div>
+            <div style="color: #F4A261; font-size: 24px; font-weight: bold;">➔</div>
+            <div style="text-align: center; flex: 1;">
+                <div style="background: #06A77D; color: white; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 auto 10px; font-weight: bold;">5</div>
+                <div style="font-weight: bold; font-size: 14px; color: #333;">Сделка</div>
+                <div style="font-size: 12px; color: #666;">Покупка</div>
+            </div>
+            <div style="color: #F4A261; font-size: 24px; font-weight: bold;">➔</div>
+            <div style="text-align: center; flex: 1;">
+                <div style="background: #2E86AB; color: white; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 auto 10px; font-weight: bold;">6</div>
+                <div style="font-weight: bold; font-size: 14px; color: #333;">Депозитарий</div>
+                <div style="font-size: 12px; color: #666;">Учет прав</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
         
         with st.expander("Кейс 1: Завод продает будущий урожай"):
             st.markdown("""
