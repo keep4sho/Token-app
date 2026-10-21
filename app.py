@@ -1063,12 +1063,15 @@ else:
                 <div class="product-title">Кукуруза фуражная</div>
                 <div class="product-volume">Объем: 2 000 тонн</div>
                 <div class="product-price">9 200 ₽/т</div>
-                <div class="product-date">Поставка: 01.12.2026</div>
+                <div class="product-date">Поставка: 25.11.2026</div>
                 <button class="btn-buy">Купить УЦП</button>
             </div>
             """, unsafe_allow_html=True)
+            
         st.markdown("<br><br>", unsafe_allow_html=True)
-                st.markdown("<h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>", unsafe_allow_html=True)
+        
+        # --- НОВАЯ ИНФОГРАФИКА ВМЕСТО ГРАФИКА ---
+        st.markdown("<h4 style='text-align: center; color: #333; margin-bottom: 25px;'>Как меняется сделка: от 7 шагов к 3</h4>", unsafe_allow_html=True)
         
         st.markdown("""
         <div style="display: flex; justify-content: space-between; align-items: center; background: #F8F9FA; padding: 30px; border-radius: 12px; border: 1px solid #E5E8EC;">
